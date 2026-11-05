@@ -1,0 +1,216 @@
+BLOCKCHAIN (BT) LP3 - VIVA QUESTIONS AND ANSWERS
+10 QUESTIONS PER PRACTICAL (PRACTICALS 13 TO 18)
+================================================
+
+These answers are concise oral-revision answers. Practical 18 is generic because
+the uploaded chit only says 'BT: Mini Project' and does not specify its topic.
+
+
+====================================================================
+PRACTICAL 13 - VIVA QUESTIONS AND ANSWERS
+====================================================================
+
+1. Q: What is MetaMask?
+   A: MetaMask is a crypto wallet application/browser extension used to manage blockchain accounts and connect to dApps.
+
+2. Q: What is a wallet address?
+   A: It is the public account identifier that can be shared to receive assets.
+
+3. Q: What is a Secret Recovery Phrase?
+   A: It is the recovery phrase used to restore wallet access. It must be kept secret and offline.
+
+4. Q: What is a private key?
+   A: A secret cryptographic key used to authorize transactions for an account.
+
+5. Q: What is gas in Ethereum?
+   A: Gas measures the computational work needed to execute a transaction or smart-contract operation.
+
+6. Q: What is gas used?
+   A: It is the actual amount of gas consumed by a completed transaction.
+
+7. Q: What is gas limit?
+   A: It is the maximum gas the sender allows the transaction to consume.
+
+8. Q: What is Gwei?
+   A: Gwei is a unit of Ether. One Gwei equals 10^-9 ETH.
+
+9. Q: How is a transaction fee calculated?
+   A: Transaction fee = gas used multiplied by effective gas price.
+
+10. Q: What is the difference between transaction value and gas fee?
+   A: Transaction value is the ETH sent; gas fee is paid for processing the transaction.
+
+
+====================================================================
+PRACTICAL 14 - VIVA QUESTIONS AND ANSWERS
+====================================================================
+
+1. Q: What is a crypto wallet?
+   A: A wallet manages keys that let a user access blockchain accounts and authorize transactions; assets are recorded on the blockchain.
+
+2. Q: What is MetaMask used for?
+   A: It manages accounts, signs transactions and connects users to decentralized applications.
+
+3. Q: What is a public address?
+   A: It is an account identifier that can be shared to receive funds.
+
+4. Q: Should a private key be shared?
+   A: No. Anyone with the private key may control the associated account.
+
+5. Q: What is a Secret Recovery Phrase?
+   A: A secret set of recovery words used to restore wallet access.
+
+6. Q: What is self-custody?
+   A: The user controls the wallet keys rather than relying on a custodian to control them.
+
+7. Q: What is a dApp?
+   A: A decentralized application that interacts with blockchain smart contracts.
+
+8. Q: What does signing a transaction mean?
+   A: The wallet uses the account's private key to authorize the transaction.
+
+9. Q: Why use a test wallet?
+   A: It reduces the risk of losing real funds while practising or testing applications.
+
+10. Q: What should be checked before confirming a transaction?
+   A: Check the network, destination, amount, requested permissions and estimated fee.
+
+
+====================================================================
+PRACTICAL 15 - VIVA QUESTIONS AND ANSWERS
+====================================================================
+
+1. Q: What is a smart contract?
+   A: A program deployed on a blockchain that executes according to its code.
+
+2. Q: What does the constructor do in Bank.sol?
+   A: It runs once at deployment and stores msg.sender as the account owner.
+
+3. Q: What is msg.sender?
+   A: It is the address that called the current function.
+
+4. Q: What does payable mean?
+   A: It allows a function to receive Ether.
+
+5. Q: What is msg.value?
+   A: It is the amount of Ether, in wei, sent with the current call.
+
+6. Q: Why is Deposit() payable?
+   A: Because the function must receive Ether and add msg.value to the recorded balance.
+
+7. Q: What does require() do?
+   A: It checks a condition and reverts the call if the condition is false.
+
+8. Q: What does view mean?
+   A: A view function can read contract state but cannot modify it.
+
+9. Q: What is the issue in the uploaded original Withdraw()?
+   A: It is payable and subtracts msg.value from the recorded balance but does not send Ether to the owner.
+
+10. Q: How does the corrected Withdraw(amount) work?
+   A: It checks the amount and balance, reduces recorded balance, then transfers the amount to the owner.
+
+
+====================================================================
+PRACTICAL 16 - VIVA QUESTIONS AND ANSWERS
+====================================================================
+
+1. Q: What is a struct in Solidity?
+   A: A struct is a custom data type that groups related variables, such as student name and roll number.
+
+2. Q: What is Student[] public studentarr?
+   A: It is a dynamic array of Student structures with a public getter.
+
+3. Q: What does push() do?
+   A: It adds a new element to the end of a dynamic array.
+
+4. Q: What is memory?
+   A: It is temporary data location used during a function call; data stored there is not persistent contract storage.
+
+5. Q: What does addStudent() do?
+   A: It checks for a duplicate roll number and then pushes a new Student record into the array.
+
+6. Q: Why is revert() used?
+   A: It stops execution and reverts the current operation when a duplicate roll number is found.
+
+7. Q: Why is require(idx < studentarr.length) used?
+   A: It prevents accessing an array element outside the valid index range.
+
+8. Q: What does fallback() do?
+   A: It is called when calldata does not match any function selector, subject to its visibility and payable rules.
+
+9. Q: What does receive() do?
+   A: It is called when the contract receives Ether with empty calldata, if defined.
+
+10. Q: What is the difference between fallback() and receive()?
+   A: receive handles empty-calldata Ether transfers; fallback handles unmatched calls and can handle Ether when payable.
+
+
+====================================================================
+PRACTICAL 17 - VIVA QUESTIONS AND ANSWERS
+====================================================================
+
+1. Q: What is a blockchain?
+   A: A distributed ledger in which records are linked using cryptographic hashes and agreed by network participants.
+
+2. Q: What is a public blockchain?
+   A: A blockchain generally open for anyone to read and participate according to its protocol rules.
+
+3. Q: What is a private blockchain?
+   A: A permissioned blockchain controlled by one organization.
+
+4. Q: What is a consortium blockchain?
+   A: A permissioned blockchain governed by a group of organizations.
+
+5. Q: What is a hybrid blockchain?
+   A: A design combining private/permissioned components with selected public blockchain features.
+
+6. Q: Give two public blockchain examples.
+   A: Bitcoin and Ethereum.
+
+7. Q: How can blockchain be used in supply chains?
+   A: It can record provenance, custody changes and shipment milestones shared across participants.
+
+8. Q: How can blockchain be used in healthcare?
+   A: It can support audit trails and proofs of data integrity; sensitive medical data needs privacy protection.
+
+9. Q: What is one advantage of blockchain?
+   A: It can provide shared, tamper-evident records and traceability across parties.
+
+10. Q: What is one limitation of blockchain?
+   A: Scalability, transaction cost, privacy and smart-contract security can be challenging.
+
+
+====================================================================
+PRACTICAL 18 - VIVA QUESTIONS AND ANSWERS
+====================================================================
+
+1. Q: What is a blockchain mini project?
+   A: A practical application that uses blockchain or smart contracts to address a defined problem.
+
+2. Q: Why should we define a problem statement?
+   A: It explains the problem, intended users and why the proposed solution is needed.
+
+3. Q: What is the role of Solidity?
+   A: Solidity is a programming language used to write smart contracts for EVM-compatible blockchains.
+
+4. Q: What is Remix IDE?
+   A: A browser-based development environment for writing, compiling, deploying and interacting with smart contracts.
+
+5. Q: What is MetaMask's role in a dApp?
+   A: It connects the user to the dApp and approves/signs blockchain transactions.
+
+6. Q: What is a transaction hash?
+   A: A unique identifier for a blockchain transaction.
+
+7. Q: What is gas?
+   A: A measure of computation used to execute a transaction or smart-contract operation.
+
+8. Q: What is the difference between read and write functions?
+   A: Read-only calls such as view normally do not create an on-chain state-changing transaction; write functions change state and need a transaction.
+
+9. Q: How do you test a smart contract?
+   A: Use local/test networks, test valid and invalid inputs, inspect results and transaction details.
+
+10. Q: What should you explain in a mini-project viva?
+   A: Problem, objectives, architecture, contract functions, tools, workflow, tests, gas, security and limitations.

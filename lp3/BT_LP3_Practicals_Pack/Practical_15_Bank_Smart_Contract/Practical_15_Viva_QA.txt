@@ -1,0 +1,32 @@
+PRACTICAL 15 - VIVA QUESTIONS AND ANSWERS
+=======================================================
+
+1. Q: What is a smart contract?
+   A: A program deployed on a blockchain that executes according to its code.
+
+2. Q: What does the constructor do in Bank.sol?
+   A: It runs once at deployment and stores msg.sender as the account owner.
+
+3. Q: What is msg.sender?
+   A: It is the address that called the current function.
+
+4. Q: What does payable mean?
+   A: It allows a function to receive Ether.
+
+5. Q: What is msg.value?
+   A: It is the amount of Ether, in wei, sent with the current call.
+
+6. Q: Why is Deposit() payable?
+   A: Because the function must receive Ether and add msg.value to the recorded balance.
+
+7. Q: What does require() do?
+   A: It checks a condition and reverts the call if the condition is false.
+
+8. Q: What does view mean?
+   A: A view function can read contract state but cannot modify it.
+
+9. Q: What is the issue in the uploaded original Withdraw()?
+   A: It is payable and subtracts msg.value from the recorded balance but does not send Ether to the owner.
+
+10. Q: How does the corrected Withdraw(amount) work?
+   A: It checks the amount and balance, reduces recorded balance, then transfers the amount to the owner.

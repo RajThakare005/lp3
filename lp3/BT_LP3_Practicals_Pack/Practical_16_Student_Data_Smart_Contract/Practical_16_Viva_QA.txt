@@ -1,0 +1,32 @@
+PRACTICAL 16 - VIVA QUESTIONS AND ANSWERS
+=======================================================
+
+1. Q: What is a struct in Solidity?
+   A: A struct is a custom data type that groups related variables, such as student name and roll number.
+
+2. Q: What is Student[] public studentarr?
+   A: It is a dynamic array of Student structures with a public getter.
+
+3. Q: What does push() do?
+   A: It adds a new element to the end of a dynamic array.
+
+4. Q: What is memory?
+   A: It is temporary data location used during a function call; data stored there is not persistent contract storage.
+
+5. Q: What does addStudent() do?
+   A: It checks for a duplicate roll number and then pushes a new Student record into the array.
+
+6. Q: Why is revert() used?
+   A: It stops execution and reverts the current operation when a duplicate roll number is found.
+
+7. Q: Why is require(idx < studentarr.length) used?
+   A: It prevents accessing an array element outside the valid index range.
+
+8. Q: What does fallback() do?
+   A: It is called when calldata does not match any function selector, subject to its visibility and payable rules.
+
+9. Q: What does receive() do?
+   A: It is called when the contract receives Ether with empty calldata, if defined.
+
+10. Q: What is the difference between fallback() and receive()?
+   A: receive handles empty-calldata Ether transfers; fallback handles unmatched calls and can handle Ether when payable.

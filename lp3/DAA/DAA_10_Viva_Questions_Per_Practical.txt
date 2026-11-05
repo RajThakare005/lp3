@@ -1,0 +1,209 @@
+DAA PRACTICAL VIVA QUESTIONS AND ANSWERS
+10 Questions per Practical
+
+============================================================
+PRACTICAL 1: FIBONACCI SERIES (RECURSIVE AND ITERATIVE)
+============================================================
+
+1. What is the Fibonacci series?
+   A series in which each number is the sum of the previous two numbers:
+   0, 1, 1, 2, 3, 5, 8, ...
+
+2. What is the recurrence relation of Fibonacci?
+   F(n) = F(n-1) + F(n-2), with F(0) = 0 and F(1) = 1.
+
+3. What is recursion?
+   Recursion is a technique in which a function calls itself.
+
+4. What is the base condition in recursive Fibonacci?
+   if n <= 1: return n. It stops further recursive calls.
+
+5. What is the time complexity of recursive Fibonacci?
+   Approximately O(2^n), because many calculations are repeated.
+
+6. What is the time complexity of iterative Fibonacci?
+   O(n), because each term is calculated only once.
+
+7. Which approach is better and why?
+   Iterative Fibonacci is generally better because it is faster and avoids
+   repeated recursive calls.
+
+8. What is the space complexity of both approaches?
+   Recursive version uses O(n) call-stack space. An iterative version using
+   two variables uses O(1) auxiliary space.
+
+9. What is memoization?
+   Memoization stores previously calculated results to avoid repeated work.
+
+10. What changes can the external ask you to make?
+    Print only even or odd terms, calculate the sum of the series, print the
+    nth Fibonacci number, or use a while loop instead of a for loop.
+
+
+============================================================
+PRACTICAL 2: HUFFMAN ENCODING (GREEDY ALGORITHM)
+============================================================
+
+1. What is Huffman Encoding?
+   Huffman Encoding is a lossless data-compression technique that assigns
+   variable-length binary codes to characters.
+
+2. Which algorithmic technique is used?
+   Greedy algorithm.
+
+3. What is a greedy algorithm?
+   It makes the best available local choice at each step.
+
+4. Why do we use character frequencies?
+   Frequently occurring characters get shorter codes, while less frequent
+   characters get longer codes.
+
+5. What is a priority queue?
+   A data structure that removes elements according to priority. Here, the
+   node with the smallest frequency is removed first.
+
+6. Which Python module is used for the priority queue?
+   heapq.
+
+7. What is a prefix-free code?
+   A code in which no character's code is the prefix of another character's code.
+
+8. What happens when two nodes are combined?
+   Their frequencies are added, a new parent node is created, and it is
+   inserted back into the heap.
+
+9. What is the time complexity of Huffman Encoding?
+   O(k log k), where k is the number of distinct characters.
+
+10. What changes can the external ask you to make?
+    Display character frequencies, print codes in sorted order, encode a
+    different string, handle empty input, or add a decoding function.
+
+
+============================================================
+PRACTICAL 3: 0/1 KNAPSACK USING DYNAMIC PROGRAMMING
+============================================================
+
+1. What is the Knapsack problem?
+   It is an optimization problem in which we select items to maximize total
+   value without exceeding the given capacity.
+
+2. Why is it called 0/1 Knapsack?
+   Each item can either be selected completely (1) or not selected (0).
+
+3. Which technique is used?
+   Dynamic Programming.
+
+4. What is Dynamic Programming?
+   It solves a problem by breaking it into smaller overlapping subproblems
+   and storing their results.
+
+5. What does dp[i][w] represent?
+   The maximum value achievable using the first i items with capacity w.
+
+6. What is the recurrence relation?
+   If the item's weight is greater than the current capacity, exclude it.
+   Otherwise:
+   dp[i][w] = max(dp[i-1][w],
+                  value[i-1] + dp[i-1][w-weight[i-1]])
+
+7. What is the base condition?
+   If there are zero items or capacity is zero, the maximum value is zero.
+
+8. What is the time complexity?
+   O(nW), where n is the number of items and W is the capacity.
+
+9. What is the space complexity?
+   O(nW), because a two-dimensional DP table is used.
+
+10. What changes can the external ask you to make?
+    Print the DP table, display selected items, change the capacity, optimize
+    the table to a one-dimensional array, or implement Fractional Knapsack.
+
+
+============================================================
+PRACTICAL 4: N-QUEENS USING BACKTRACKING
+============================================================
+
+1. What is the N-Queens problem?
+   Place N queens on an N x N chessboard so that no two queens attack each other.
+
+2. Which technique is used?
+   Backtracking.
+
+3. What is backtracking?
+   It tries a possible solution and reverses the choice when it leads to an
+   invalid solution.
+
+4. How many queens are placed in each row?
+   Exactly one queen is placed in each row.
+
+5. Why cannot two queens be in the same column?
+   Because queens can attack vertically.
+
+6. How are diagonal conflicts checked?
+   row - column checks one diagonal direction, and row + column checks the
+   other diagonal direction.
+
+7. What is the purpose of the columns set?
+   It stores the columns that already contain queens.
+
+8. What is the base condition?
+   if row == n: return True. It means all N queens have been placed successfully.
+
+9. What is the time complexity?
+   O(N!) is a commonly used upper-bound estimate for this backtracking approach.
+
+10. What changes can the external ask you to make?
+    Print all solutions, count the number of solutions, change N, display the
+    chessboard, or check whether a solution exists.
+
+
+============================================================
+PRACTICAL 5: DETERMINISTIC AND RANDOMIZED QUICK SORT
+============================================================
+
+1. What is Quick Sort?
+   Quick Sort is a sorting algorithm based on the divide-and-conquer technique.
+
+2. What is a pivot?
+   A pivot is an element used to divide the array into smaller and larger
+   elements during partitioning.
+
+3. What is deterministic Quick Sort?
+   It selects the pivot using a fixed rule. In the supplied code, the last
+   element is selected as the pivot.
+
+4. What is randomized Quick Sort?
+   It selects a random pivot using random.randint(low, high).
+
+5. What is partitioning?
+   It places the pivot in its correct sorted position, with smaller elements
+   on its left and larger elements on its right.
+
+6. What is the time complexity of Quick Sort?
+   Best case: O(n log n)
+   Average case: O(n log n)
+   Worst case: O(n^2)
+
+7. Why can randomized Quick Sort be better?
+   Random pivot selection reduces the chance of repeatedly choosing a poor
+   pivot, although the worst case is still O(n^2).
+
+8. What does arr.copy() do?
+   It creates a separate copy of the original array so both sorting methods
+   can be tested using the same input.
+
+9. Why do we use time.perf_counter()?
+   It measures elapsed execution time using a high-resolution performance
+   counter.
+
+10. What changes can the external ask you to make?
+    Sort in descending order, choose a different pivot, count comparisons and
+    swaps, remove randomization, or compare the algorithms on sorted and
+    reverse-sorted arrays.
+
+
+============================================================
+END OF DAA VIVA QUESTIONS
+============================================================

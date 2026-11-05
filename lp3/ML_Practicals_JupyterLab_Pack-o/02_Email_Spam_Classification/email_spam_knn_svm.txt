@@ -1,0 +1,62 @@
+# ML Practical 8: Email Spam Detection
+# K-Nearest Neighbors (KNN) and Support Vector Machine (SVM)
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import LinearSVC
+from sklearn.metrics import (
+    accuracy_score, confusion_matrix, precision_score,
+    recall_score, f1_score
+)
+
+DATA_FILE = "emails.csv"
+
+# 1. Load the uploaded dataset
+df = pd.read_csv(DATA_FILE, encoding="latin1")
+
+# This CSV already contains numeric word-frequency columns.
+# "Email No." is an identifier; "Prediction" is the 0/1 target.
+if "Prediction" not in df.columns:
+    raise ValueError("Dataset must contain a 'Prediction' target column.")
+
+df = df.dropna(subset=["Prediction"])
+X = df.drop(columns=["Email No.", "Prediction"], errors="ignore")
+y = df["Prediction"].astype(int)
+
+if not set(y.unique()).issubset({0, 1}):
+    raise ValueError("Prediction must contain only 0 (Not Spam) and 1 (Spam).")
+
+# 2. Split dataset while preserving the class proportions
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# 3. Define the two classifiers
+models = {
+    "KNN": KNeighborsClassifier(n_neighbors=5),
+    "SVM": LinearSVC(random_state=42, max_iter=5000)
+}
+
+# 4. Train and evaluate both classifiers
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+
+    print("\n", name)
+    print("Confusion Matrix (rows=true, columns=predicted):")
+    print(confusion_matrix(y_test, y_pred, labels=[0, 1]))
+    print("Accuracy:", round(accuracy_score(y_test, y_pred) * 100, 2), "%")
+    print("Error Rate:", round((1 - accuracy_score(y_test, y_pred)) * 100, 2), "%")
+    print("Precision:", round(precision_score(y_test, y_pred, zero_division=0), 3))
+    print("Recall:", round(recall_score(y_test, y_pred, zero_division=0), 3))
+    print("F1 Score:", round(f1_score(y_test, y_pred, zero_division=0), 3))
+
+    # Predict one held-out email row from the dataset
+    sample = X_test.iloc[[0]]
+    prediction = model.predict(sample)[0]
+    print("Sample email prediction:",
+          "Spam" if prediction == 1 else "Not Spam")
+
+print("\nLabel meaning: 0 = Not Spam (Normal), 1 = Spam (Abnormal).")
+

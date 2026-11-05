@@ -1,0 +1,69 @@
+PRACTICAL 16 - SOLIDITY STUDENT DATA USING STRUCTURES, ARRAYS AND FALLBACK
+============================================================================
+
+AIM
+Write a Solidity program to create student data using structures and arrays,
+include fallback/receive functions, deploy it, and observe transaction fee and gas.
+
+CONTRACT FILE
+Student.sol is transcribed from the uploaded "bt code.docx".
+
+CONCEPTS USED
+1. struct Student:
+   Defines a custom data type with name (string) and rollno (uint256).
+2. Student[] public studentarr:
+   A dynamic array that stores Student structures.
+3. addStudent(name, rollno):
+   Loops through existing records, rejects a duplicate roll number using revert,
+   and adds a new Student structure using push().
+4. getStudentLength():
+   Returns the number of records.
+5. displayAllStudents():
+   Returns the complete array in memory.
+6. getStudentByIndex(idx):
+   Checks that idx is within the array bounds using require(), then returns a record.
+7. fallback():
+   Runs when a call does not match a function selector (and may accept Ether only
+   when declared payable).
+8. receive():
+   Runs when the contract receives Ether with empty calldata, if declared.
+
+HOW TO RUN USING REMIX
+1. Open https://remix.ethereum.org/.
+2. Create Student.sol and paste the code from this folder.
+3. Select a Solidity compiler compatible with pragma ^0.8.0 and compile.
+4. Open Deploy & Run Transactions.
+5. Select Remix VM for a local demonstration, or connect MetaMask to a test network.
+6. Deploy StudentData.
+7. Call addStudent with a name and roll number, for example "Asha" and 101.
+8. Add another student with a different roll number.
+9. Try adding a duplicate roll number; the transaction should revert.
+10. Call getStudentLength, displayAllStudents and getStudentByIndex.
+11. Observe gas used for deployment and state-changing addStudent transactions.
+
+GAS OBSERVATIONS
+- Deploying a contract costs gas because contract bytecode is stored on-chain.
+- addStudent changes blockchain state and requires a transaction.
+- view functions do not create a state-changing transaction when called normally
+  through Remix as a read call; they are generally executed locally and do not
+  require an on-chain transaction fee.
+- A duplicate check loops over existing students. As the array grows, addStudent
+  performs more comparisons and can consume more gas.
+- receive() and fallback() are payable entry points; sending Ether to them is a
+  transaction and consumes gas.
+
+OBSERVATION TABLE
+Operation          | Gas used / transaction details
+Deploy StudentData | ______________________________
+Add first student  | ______________________________
+Add another student| ______________________________
+Duplicate roll no. | Revert / gas details: _________
+Read student list  | Read-only call / no on-chain tx when called normally
+
+RESULT
+Student data was stored and retrieved using a Solidity structure and dynamic array.
+Fallback and receive functions were studied, and gas usage was observed.
+
+NOTE
+This experiment contract has no function to withdraw Ether received through its
+payable fallback/receive functions. Do not send valuable funds to it.

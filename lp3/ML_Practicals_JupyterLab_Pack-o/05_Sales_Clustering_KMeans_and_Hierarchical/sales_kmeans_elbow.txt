@@ -1,0 +1,76 @@
+# ML Practical 11: Sales Data Clustering using K-Means and Elbow Method
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+DATA_FILE = "sales_data_sample.csv"
+
+# 1. Load dataset (CSV uses Latin-1 encoding)
+df = pd.read_csv(DATA_FILE, encoding="latin1")
+
+# 2. Select numerical sales features
+feature_columns = ["QUANTITYORDERED", "PRICEEACH", "SALES", "MSRP"]
+data = df[feature_columns].dropna()
+
+# 3. Scale features because their value ranges differ
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(data)
+
+# 4. Calculate WCSS for K=1 to K=10 (Elbow Method)
+wcss = []
+k_values = range(1, 11)
+
+for k in k_values:
+    model = KMeans(n_clusters=k, random_state=42, n_init=10)
+    model.fit(X_scaled)
+    wcss.append(model.inertia_)
+
+print("K value and WCSS:")
+for k, value in zip(k_values, wcss):
+    print(k, ":", round(value, 2))
+
+# 5. Plot Elbow graph
+plt.figure(figsize=(8, 5))
+plt.plot(list(k_values), wcss, marker="o")
+plt.xlabel("Number of clusters (K)")
+plt.ylabel("WCSS")
+plt.title("Elbow Method for Sales Dataset")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# 6. Apply K-Means. 3 is the example selected value.
+# Change FINAL_K if the Elbow graph indicates a different value.
+FINAL_K = 3
+kmeans = KMeans(n_clusters=FINAL_K, random_state=42, n_init=10)
+labels = kmeans.fit_predict(X_scaled)
+
+# 7. Display results
+result = data.copy()
+result["Cluster"] = labels
+
+print("\nNumber of clusters:", FINAL_K)
+print("\nCluster counts:")
+print(result["Cluster"].value_counts().sort_index())
+
+centers = scaler.inverse_transform(kmeans.cluster_centers_)
+print("\nCluster centers (original scale):")
+print(pd.DataFrame(centers, columns=feature_columns).round(2))
+
+print("\nFirst 5 rows with cluster labels:")
+print(result.head())
+
+# 8. Visualize clusters using Quantity Ordered and Sales
+plt.figure(figsize=(8, 5))
+plt.scatter(
+    result["QUANTITYORDERED"], result["SALES"],
+    c=result["Cluster"], cmap="viridis"
+)
+plt.xlabel("Quantity Ordered")
+plt.ylabel("Sales")
+plt.title("K-Means Clustering of Sales Data")
+plt.tight_layout()
+plt.show()
+

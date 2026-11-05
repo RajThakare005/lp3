@@ -1,0 +1,64 @@
+# ML Practical 10: Diabetes Classification using K-Nearest Neighbors
+
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score
+
+DATA_FILE = "diabetes.csv"
+
+# 1. Load dataset
+df = pd.read_csv(DATA_FILE)
+
+# 2. Separate input features and output
+X = df.drop("Outcome", axis=1).copy()
+y = df["Outcome"].astype(int)
+
+# 3. In this dataset, zero represents missing measurement values
+# for these columns. Zero pregnancies can be a valid value.
+zero_means_missing = [
+    "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI"
+]
+for column in zero_means_missing:
+    X[column] = X[column].replace(0, np.nan)
+
+# 4. Split into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# 5. Median imputation, scaling and KNN classifier
+model = Pipeline([
+    ("imputer", SimpleImputer(strategy="median")),
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(n_neighbors=5))
+])
+
+# 6. Train and predict
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+# 7. Calculate evaluation metrics
+cm = confusion_matrix(y_test, y_pred)
+accuracy = accuracy_score(y_test, y_pred)
+error_rate = 1 - accuracy
+precision = precision_score(y_test, y_pred, zero_division=0)
+
+# 8. Display results
+print("Confusion Matrix:")
+print(cm)
+print("Accuracy:", round(accuracy * 100, 2), "%")
+print("Error Rate:", round(error_rate * 100, 2), "%")
+print("Precision:", round(precision, 4))
+print("Precision (%):", round(precision * 100, 2), "%")
+
+# 9. Predict one sample from the test dataset
+sample = X_test.iloc[[0]]
+prediction = model.predict(sample)[0]
+print("Sample prediction:",
+      "Diabetic (1)" if prediction == 1 else "Not Diabetic (0)")
+

@@ -1,0 +1,32 @@
+PRACTICAL 17 - VIVA QUESTIONS AND ANSWERS
+=======================================================
+
+1. Q: What is a blockchain?
+   A: A distributed ledger in which records are linked using cryptographic hashes and agreed by network participants.
+
+2. Q: What is a public blockchain?
+   A: A blockchain generally open for anyone to read and participate according to its protocol rules.
+
+3. Q: What is a private blockchain?
+   A: A permissioned blockchain controlled by one organization.
+
+4. Q: What is a consortium blockchain?
+   A: A permissioned blockchain governed by a group of organizations.
+
+5. Q: What is a hybrid blockchain?
+   A: A design combining private/permissioned components with selected public blockchain features.
+
+6. Q: Give two public blockchain examples.
+   A: Bitcoin and Ethereum.
+
+7. Q: How can blockchain be used in supply chains?
+   A: It can record provenance, custody changes and shipment milestones shared across participants.
+
+8. Q: How can blockchain be used in healthcare?
+   A: It can support audit trails and proofs of data integrity; sensitive medical data needs privacy protection.
+
+9. Q: What is one advantage of blockchain?
+   A: It can provide shared, tamper-evident records and traceability across parties.
+
+10. Q: What is one limitation of blockchain?
+   A: Scalability, transaction cost, privacy and smart-contract security can be challenging.

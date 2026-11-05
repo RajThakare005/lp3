@@ -1,0 +1,81 @@
+PRACTICAL 13 - INSTALLATION OF METAMASK AND STUDY OF ETHER SPENDING PER TRANSACTION
+======================================================================================
+
+AIM
+Install the MetaMask wallet and understand how Ether is spent as a transaction fee.
+
+REQUIREMENTS
+- A supported web browser such as Chrome or Firefox.
+- Internet connection.
+- Official MetaMask website: https://metamask.io/
+- For practice, use a test network and test ETH. Do not use real funds for a classroom demo.
+
+WHAT IS METAMASK?
+MetaMask is a wallet application/browser extension that manages blockchain accounts
+and lets a user connect to decentralized applications (dApps). It can be used to
+approve transactions and interact with smart contracts.
+
+INSTALLATION STEPS
+1. Open the official website https://metamask.io/.
+2. Choose the official browser extension for your browser.
+3. Install it from the linked official browser store.
+4. Open the MetaMask extension.
+5. Create a new wallet for practice or import an existing wallet only when appropriate.
+6. Set a strong wallet password.
+7. If using a Secret Recovery Phrase (SRP), write it down offline and store it securely.
+8. Never share your SRP or private key with anyone. A legitimate support person does
+   not need your recovery phrase.
+9. Open the wallet and note your public account address. It is safe to share an
+   address when someone needs to send you funds, but it does not reveal your private key.
+
+STUDYING AN ETHER TRANSACTION FEE
+1. Use a test network such as Sepolia for learning.
+2. Obtain test ETH only from a trusted faucet for that test network.
+3. Connect the wallet to the relevant dApp or Remix contract environment.
+4. Initiate a test transaction and review the fee estimate in the wallet.
+5. After the transaction is submitted, open its Activity/details view.
+6. Record the transaction hash, gas used, effective gas price and total fee.
+7. Open the transaction in the relevant block explorer to inspect the on-chain details.
+
+GAS AND TRANSACTION FEE
+- Gas is the unit that measures computational work performed by the EVM.
+- Gas used is the actual amount of gas consumed by the executed transaction.
+- Gas limit is the maximum amount of gas the sender permits the transaction to use.
+- Gas price is the cost per unit of gas.
+- Gwei is a denomination of Ether: 1 ETH = 1,000,000,000 Gwei.
+- On an EIP-1559 Ethereum transaction, the effective gas price reflects the base fee
+  and the priority fee, subject to the transaction's fee settings.
+
+Basic fee calculation:
+Transaction fee = Gas used x Effective gas price
+
+Example:
+Gas used = 21,000
+Effective gas price = 20 Gwei
+Fee = 21,000 x 20 Gwei = 420,000 Gwei = 0.00042 ETH
+
+The example is only an arithmetic illustration. Actual gas used and gas price vary
+by transaction type and network congestion. A smart-contract call usually consumes
+more gas than a simple ETH transfer.
+
+IMPORTANT DIFFERENCES
+- Transaction value: the amount of ETH being transferred or sent to a payable function.
+- Gas fee: the fee paid to validators for processing the transaction.
+- Gas limit: a cap on gas consumption, not the amount of ETH sent to the contract.
+- A failed on-chain transaction can still consume gas.
+
+OBSERVATION TABLE TO FILL DURING PRACTICAL
+Transaction type | Gas used | Effective gas price | Fee (ETH) | Transaction hash
+Simple transfer  | ________ | ___________________ | _________ | ________________
+Contract deploy  | ________ | ___________________ | _________ | ________________
+Contract call    | ________ | ___________________ | _________ | ________________
+
+RESULT
+MetaMask installation and the relationship between gas used, gas price and Ether
+transaction fees were studied.
+
+REFERENCES
+MetaMask installation help:
+https://support.metamask.io/start/getting-started-with-metamask
+Ethereum transaction fee mechanism:
+https://eips.ethereum.org/EIPS/eip-1559

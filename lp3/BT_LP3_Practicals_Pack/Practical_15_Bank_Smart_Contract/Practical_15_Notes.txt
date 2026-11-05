@@ -1,0 +1,80 @@
+PRACTICAL 15 - SMART CONTRACT ON A TEST NETWORK FOR A BANK ACCOUNT
+===================================================================
+
+AIM
+Write and deploy a smart contract for a bank account supporting Deposit, Withdraw
+and ShowBalance operations.
+
+CONTRACT FILES IN THIS FOLDER
+1. Bank_Original_From_Upload.sol / .txt
+   The same Bank contract supplied in the uploaded "bt code.docx".
+2. Bank_Corrected.sol / .txt
+   A corrected teaching version in which Withdraw sends Ether to the owner.
+
+IMPORTANT ISSUE IN THE SUPPLIED ORIGINAL CODE
+The original Withdraw() function is declared payable and subtracts msg.value from
+the stored balance, but it does not transfer Ether to the account owner. Also,
+because it is payable, the caller sends Ether into the contract while attempting
+to withdraw. The contract's actual Ether balance therefore does not decrease as a
+normal withdrawal should.
+
+For understanding the supplied code, know what each line does. For a functional
+withdrawal demonstration, use the separately labelled corrected version, subject
+to your instructor's required code format.
+
+CORRECTED CONTRACT BEHAVIOUR
+- Constructor stores the deployer's address in accOwner.
+- onlyOwner restricts the bank operations to that owner.
+- Deposit() is payable and adds msg.value to the recorded balance.
+- Withdraw(amount) checks the requested amount and the available balance, updates
+  the recorded balance, then sends the Ether to the owner.
+- ShowBalance() returns the recorded balance in wei.
+- ShowContractEtherBalance() returns the actual Ether held by the contract in wei.
+
+HOW TO RUN USING REMIX
+1. Open https://remix.ethereum.org/.
+2. Create a file named Bank.sol.
+3. Paste Bank_Corrected.sol or the exact code version instructed by your teacher.
+4. Open Solidity Compiler and choose a compiler compatible with pragma ^0.8.0.
+5. Compile the Bank contract.
+6. Open Deploy & Run Transactions.
+7. For a local demonstration, choose Remix VM. For a public test-network demonstration,
+   connect MetaMask and choose the browser-wallet environment (the UI may label it
+   Browser Extension or Injected Provider - MetaMask).
+8. Ensure MetaMask is on the same test network selected for deployment and has test ETH.
+9. Click Deploy and confirm the transaction if using MetaMask.
+10. Expand the deployed Bank contract functions.
+
+TESTING THE CORRECTED CONTRACT
+A. Deposit
+- In Remix, set the Value field to a small test amount, for example 0.01.
+- Select the unit Ether in the Value field.
+- Click Deposit and confirm the transaction.
+- The transaction value is deposited; the gas fee is separate.
+
+B. ShowBalance
+- Click ShowBalance.
+- The returned uint256 is in wei. 1 ETH = 10^18 wei.
+
+C. Withdraw
+- Enter a withdrawal amount in wei in the Withdraw(amount) input.
+- Example: 1000000000000000 wei = 0.001 ETH.
+- Click Withdraw and confirm the transaction.
+- Check ShowBalance and ShowContractEtherBalance after withdrawal.
+
+D. Transaction fee
+- Open the transaction details in MetaMask or the block explorer.
+- Record gas used and effective gas price.
+- Fee = gas used x effective gas price.
+
+IMPORTANT
+Use a test network and test ETH for the lab. Do not deploy an experimental contract
+with real funds. Contract code is provided for learning and is not audited for
+production use.
+
+RESULT
+A bank smart contract with deposit, withdrawal and balance functions was compiled,
+deployed and tested on a development/test network.
+
+REMIX REFERENCE
+https://remix-ide.readthedocs.io/

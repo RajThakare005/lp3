@@ -1,0 +1,32 @@
+PRACTICAL 14 - VIVA QUESTIONS AND ANSWERS
+=======================================================
+
+1. Q: What is a crypto wallet?
+   A: A wallet manages keys that let a user access blockchain accounts and authorize transactions; assets are recorded on the blockchain.
+
+2. Q: What is MetaMask used for?
+   A: It manages accounts, signs transactions and connects users to decentralized applications.
+
+3. Q: What is a public address?
+   A: It is an account identifier that can be shared to receive funds.
+
+4. Q: Should a private key be shared?
+   A: No. Anyone with the private key may control the associated account.
+
+5. Q: What is a Secret Recovery Phrase?
+   A: A secret set of recovery words used to restore wallet access.
+
+6. Q: What is self-custody?
+   A: The user controls the wallet keys rather than relying on a custodian to control them.
+
+7. Q: What is a dApp?
+   A: A decentralized application that interacts with blockchain smart contracts.
+
+8. Q: What does signing a transaction mean?
+   A: The wallet uses the account's private key to authorize the transaction.
+
+9. Q: Why use a test wallet?
+   A: It reduces the risk of losing real funds while practising or testing applications.
+
+10. Q: What should be checked before confirming a transaction?
+   A: Check the network, destination, amount, requested permissions and estimated fee.

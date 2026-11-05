@@ -1,0 +1,87 @@
+PRACTICAL 17 - SURVEY REPORT ON TYPES OF BLOCKCHAINS AND REAL-WORLD USE CASES
+=============================================================================
+
+AIM
+Study different types of blockchains and identify their real-world use cases.
+
+INTRODUCTION
+A blockchain is a distributed ledger in which records are grouped into blocks and
+linked using cryptographic hashes. Copies of the ledger are maintained by multiple
+participants. Consensus mechanisms help participants agree on the ledger state.
+
+TYPES OF BLOCKCHAINS
+
+1. PUBLIC BLOCKCHAIN
+- Open network that people can generally read and participate in according to its rules.
+- Usually permissionless for joining and transaction submission.
+- Examples: Bitcoin and Ethereum.
+- Uses: cryptocurrency transfers, public smart contracts, token issuance and
+  decentralized applications.
+- Challenges: public data visibility, scalability and variable transaction fees.
+
+2. PRIVATE BLOCKCHAIN
+- Controlled by one organization or administrator.
+- Participation and write access are restricted.
+- Uses: internal business records, controlled inter-department workflows and
+  enterprise audit trails.
+- Benefit: access control and governance can be tailored to the organization.
+- Limitation: it is less decentralized than a public blockchain.
+
+3. CONSORTIUM / FEDERATED BLOCKCHAIN
+- Operated by a group of selected organizations rather than one organization alone.
+- Permissioned membership and shared governance.
+- Uses: inter-bank settlement, trade finance, supply-chain coordination and
+  shared records among business partners.
+- Benefit: multiple organizations can share a governed ledger.
+- Challenge: members must agree on governance, permissions and operating rules.
+
+4. HYBRID BLOCKCHAIN
+- Combines private/permissioned components with selected public blockchain features.
+- Sensitive records can remain under controlled access while selected proofs or
+  transactions are made publicly verifiable.
+- Uses: regulated data workflows, identity systems and supply-chain proofs.
+- Challenge: integration and privacy design can be complex.
+
+REAL-WORLD USE CASES
+1. FINANCE AND PAYMENTS
+   Shared settlement records, digital assets and programmable payment workflows.
+2. SUPPLY-CHAIN MANAGEMENT
+   Recording product origin, custody changes and shipment milestones across partners.
+3. HEALTHCARE
+   Audit trails for access to records and proofs of data integrity. Sensitive medical
+   data should not simply be placed on a public chain.
+4. DIGITAL IDENTITY
+   Verifiable credentials and proofs that help users present identity attributes.
+5. LAND AND ASSET REGISTRIES
+   Tamper-evident records and tokenized representations, subject to legal recognition.
+6. DIGITAL CERTIFICATES
+   Issuing and verifying academic or training certificates.
+7. ENERGY
+   Recording energy certificates, renewable-energy credits or peer-to-peer
+   energy-trading transactions in suitable systems.
+8. DIGITAL OWNERSHIP
+   Tokens can represent digital items or claims, but legal ownership depends on
+   the underlying rights and applicable law.
+
+ADVANTAGES
+- Shared and tamper-evident record keeping.
+- Traceability and auditability.
+- Programmable business rules through smart contracts.
+- Reduced need for one party to maintain the only authoritative database in
+  multi-party workflows.
+
+LIMITATIONS
+- Scalability and transaction costs can be concerns.
+- Public-chain transactions may be difficult to reverse.
+- Privacy and data-protection requirements need careful architecture.
+- Smart-contract bugs can cause loss or incorrect behaviour.
+- Blockchain is not necessary when one trusted organization can manage a normal
+  database more efficiently.
+
+CONCLUSION
+Public, private, consortium and hybrid blockchains offer different permission and
+governance models. Their suitability depends on trust, privacy, performance,
+regulatory needs and the number of participating organizations.
+
+RESULT
+Types of blockchains and their real-world use cases were surveyed.

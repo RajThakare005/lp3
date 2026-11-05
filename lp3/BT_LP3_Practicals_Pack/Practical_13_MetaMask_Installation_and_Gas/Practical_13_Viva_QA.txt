@@ -1,0 +1,32 @@
+PRACTICAL 13 - VIVA QUESTIONS AND ANSWERS
+=======================================================
+
+1. Q: What is MetaMask?
+   A: MetaMask is a crypto wallet application/browser extension used to manage blockchain accounts and connect to dApps.
+
+2. Q: What is a wallet address?
+   A: It is the public account identifier that can be shared to receive assets.
+
+3. Q: What is a Secret Recovery Phrase?
+   A: It is the recovery phrase used to restore wallet access. It must be kept secret and offline.
+
+4. Q: What is a private key?
+   A: A secret cryptographic key used to authorize transactions for an account.
+
+5. Q: What is gas in Ethereum?
+   A: Gas measures the computational work needed to execute a transaction or smart-contract operation.
+
+6. Q: What is gas used?
+   A: It is the actual amount of gas consumed by a completed transaction.
+
+7. Q: What is gas limit?
+   A: It is the maximum gas the sender allows the transaction to consume.
+
+8. Q: What is Gwei?
+   A: Gwei is a unit of Ether. One Gwei equals 10^-9 ETH.
+
+9. Q: How is a transaction fee calculated?
+   A: Transaction fee = gas used multiplied by effective gas price.
+
+10. Q: What is the difference between transaction value and gas fee?
+   A: Transaction value is the ETH sent; gas fee is paid for processing the transaction.

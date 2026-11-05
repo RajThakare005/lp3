@@ -1,0 +1,41 @@
+# Optional alternative: Hierarchical (Agglomerative) Clustering
+# on sales_data_sample.csv
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import AgglomerativeClustering
+from scipy.cluster.hierarchy import linkage, dendrogram
+
+DATA_FILE = "sales_data_sample.csv"
+df = pd.read_csv(DATA_FILE, encoding="latin1")
+
+feature_columns = ["QUANTITYORDERED", "PRICEEACH", "SALES", "MSRP"]
+data = df[feature_columns].dropna()
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(data)
+
+# Dendrogram helps inspect possible cluster groupings
+linkage_matrix = linkage(X_scaled, method="ward")
+plt.figure(figsize=(10, 5))
+dendrogram(linkage_matrix, truncate_mode="lastp", p=30)
+plt.title("Hierarchical Clustering Dendrogram (Ward)")
+plt.xlabel("Merged groups")
+plt.ylabel("Distance")
+plt.tight_layout()
+plt.show()
+
+# Select cluster count after inspecting the dendrogram
+FINAL_K = 3
+model = AgglomerativeClustering(n_clusters=FINAL_K, linkage="ward")
+labels = model.fit_predict(X_scaled)
+
+result = data.copy()
+result["Cluster"] = labels
+print("Number of clusters:", FINAL_K)
+print("\nCluster counts:")
+print(result["Cluster"].value_counts().sort_index())
+print("\nFirst 5 rows with cluster labels:")
+print(result.head())
+
